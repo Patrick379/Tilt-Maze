@@ -1,0 +1,4 @@
+sceneSetups:
+- path: Assets/tilt-maze.unity
+  isLoaded: 1
+  isActive: 1
