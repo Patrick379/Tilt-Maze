@@ -5,10 +5,12 @@ using UnityEngine;
 //Added 2/19/17
 public class Controls : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+    private Rigidbody rb;
+
+    // Use this for initialization
+    void Start () {
+        rb = GetComponent<Rigidbody>();
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -19,7 +21,15 @@ public class Controls : MonoBehaviour {
         if (Input.GetKey("q")){
             Application.Quit();
         }
+        
 	}
+    private void FixedUpdate()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            rb.AddForce(Vector3.up * Time.deltaTime * 1500);
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
         if(other.name == "Goal")
